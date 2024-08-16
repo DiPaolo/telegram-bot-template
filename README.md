@@ -1,16 +1,20 @@
 1. ```alembic init alembic```
 
-1. **alembic/env.py**:
+2. **alembic/env.py**:  
   ```target_metadata = Base.metadata```
 
-  ```
-  from deepeasy_timezones_bot import config as cfg
-  config.set_main_option("sqlalchemy.url", get_db_url(cfg.DB_FILENAME))
-  ```
+    ```
+    from deepeasy_timezones_bot import config as cfg
+    config.set_main_option("sqlalchemy.url", get_db_url(cfg.DB_FILENAME))
+    ```
 
-1. **alembic.ini**:
+3. (optional) for SQLite:  
+  **alembic.ini**:  
+  ```sqlalchemy.url = sqlite:////<path>/db/deepeasy_timezones_bot.db```
+
+4. **alembic.ini**:  
   ```sqlalchemy.url = 'will be set dynamically'```
 
-1. запуск бота чтобы создать базу
+5. запуск бота чтобы создать базу
 
-1. ```alembic revision --autogenerate -m 'initial'```
+6. ```alembic revision --autogenerate -m 'initial'```
